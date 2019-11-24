@@ -27,7 +27,7 @@ c = 1;
 a = -k^2;
 f = 0;
 
-disp('apad fasza data loaded');
+disp('data loaded');
 
 %% Create PDE Model
 % Create a PDE Model with a single dependent variable.
