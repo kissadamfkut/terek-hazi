@@ -34,18 +34,18 @@ disp('apad fasza data loaded');
 numberOfPDE = 1;
 model = createpde(numberOfPDE);
 
-disp('anyad picsaja model created');
+disp('model created');
 
 %%
 % Convert the geometry and append it to the pde model.
 geometryFromEdges(model,g);
 
-disp('lofasz mayonais-zsel geometry converted');
+disp('geometry converted');
 
 %% Specify PDE Coefficients
 specifyCoefficients(model,'m',0,'d',0,'c',c,'a',a,'f',f);
 
-disp('beleverem a tripperes faszom pde specified');
+disp('pde specified');
 
 %% Boundary Conditions
 % Plot the geometry and display the edge labels for use in the boundary
@@ -56,7 +56,7 @@ axis equal
 title 'Geometry With Edge Labels Displayed';
 ylim([-5,5])
 
-disp('te fasszopo allat boundary defined');
+disp('boundary defined');
 
 %%
 % Apply the boundary conditions.
@@ -65,7 +65,7 @@ innerBCFunc = @(loc,state)-exp(-1i*k*loc.x);
 %innerBCFunc = 0; % <== mert idealis femnek tekintem
 bInner = applyBoundaryCondition(model,'dirichlet','Edge',(5:8),'u',innerBCFunc);
 
-disp('szetkurom anyadat boundary applied');
+disp('boundary applied');
 
 %% Create Mesh
 generateMesh(model,'Hmax',0.02);
@@ -73,7 +73,7 @@ figure
 pdemesh(model); 
 axis equal
 
-disp('gecis picsadat mesh created');
+disp('mesh created');
 
 %% Solve for Complex Amplitude
 % The real part of the vector |u| stores an approximation to a real-valued solution of the
@@ -81,7 +81,7 @@ disp('gecis picsadat mesh created');
 result = solvepde(model);
 u = result.NodalSolution;
 
-disp('te autista animalszexes allat ugyeretem complex amplitude');
+disp('complex amplitude');
 
 %% Plot FEM Solution
 figure
@@ -89,7 +89,7 @@ figure
 pdeplot(model,'XYData',real(u),'Mesh','off');
 colormap(jet)
 
-disp('kurva hvt fem solution plotted');
+disp('fem solution plotted');
 
 %% Animate Solution to Wave Equation
 % Using the solution to the Helmholtz equation, construct an animation showing
