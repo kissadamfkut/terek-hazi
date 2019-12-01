@@ -1,0 +1,102 @@
+% Hazi Feladat / Meresi jegyzokony sablon BME MIT
+% Keszult: 2012.13.17
+% Leiras: Ebben a fajlban csak a fo valtozokat kell kitolteni (ahol azt jelezve van).
+
+\documentclass[11pt,a4paper,oneside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{times}
+\usepackage{fancyhdr}
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{anysize}
+
+% Fo valtozok - KITOLTENDO:
+
+\newcommand{\authornamea}{Szirbik Bence}				% A szerző neve
+\newcommand{\authorneptuna}{GMAW02}					% NEPTUN kódja
+
+\newcommand{\authornameb}{Kiss Ádám}				% A szerző neve
+\newcommand{\authorneptunb}{RRN900}					% NEPTUN kódja
+
+\newcommand{\authornamec}{Szabó Áron}				% A szerző neve
+\newcommand{\authorneptunc}{AE0F10}					% NEPTUN kódja
+
+
+\newcommand{\course}{Elektromágneses terek}					% A tárgy neve
+\newcommand{\coursecode}{VIHVMA08}						% A tárgy kódja
+\newcommand{\hwtitle}{2D radarszórási (scattering) feladat szimulációja}					% A dokumentum címe
+\newcommand{\hw}{2D radarszórási (scattering) feladat szimulációja}						% A feladat neve
+\newcommand{\keywords}{ }				% A feladat neve
+
+\usepackage[
+	pdftitle={\course \ - \hwtitle},
+	pdfauthor={\authornamea, \authornameb, \authornamec},
+	pdfsubject={\hw},
+	pdfcreator={latex},
+	pdfkeywords={\keywords, \hw, \authornamea, \authornameb, \authornamec},
+	pdfpagemode=UseOutlines,
+	pdfdisplaydoctitle=true,
+	pdflang=hu,
+	unicode
+]{hyperref}
+
+\definecolor{myblack}{rgb}{0,0,0}
+\definecolor{mygray}{RGB}{245,245,245}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=myblack,
+	citecolor=myblack,
+	filecolor=myblack,
+	menucolor=myblack,
+	urlcolor=myblack,
+	bookmarksnumbered=true
+}
+
+\lstset{
+	basicstyle=\scriptsize\ttfamily,
+	keywordstyle=\color{black}\bfseries\underbar,
+	identifierstyle=, 		
+	commentstyle=\color{white},
+	stringstyle=\scriptsize\sffamily, 
+	showstringspaces=false,
+	aboveskip=3pt,
+	belowskip=3pt,
+	columns=fixed,
+	backgroundcolor=\color{mygray},
+} 
+
+\paperwidth=21cm \paperheight29.7cm
+\marginsize{2cm}{2cm}{2.5cm}{3cm}
+\addtolength\topmargin{-\headheight} \addtolength\topmargin{-\headsep}
+\addtolength\textheight{\headheight} \addtolength\textheight{\headsep}
+\addtolength\textheight{\footskip}
+\footskip=15pt
+\ifx\pdfoutput\UnDefined \newcount\pdfoutput \fi
+\ifnum0<\pdfoutput
+  \pdfpagewidth\paperwidth \pdfpageheight\paperheight \pdfcompresslevel9
+\else \special{papersize=21cm,29.7cm} \fi
+
+\setlength{\parindent}{1cm}
+\pagestyle{plain}
+\fancyhf{}
+\lhead{\authornamea, \authornameb, \authornamec}
+\rhead{\hw}
+\rfoot{\thepage}
+\lfoot{\today}
+
+\renewcommand{\lstlistingname}{Forráskód}
+\begin{document}
+\include{titlepage}
+\clearpage \tableofcontents \pagestyle{fancy}
+\newpage
+\include{content}
+%\include{cite}
+\end{document}
