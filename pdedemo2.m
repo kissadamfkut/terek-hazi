@@ -60,15 +60,14 @@ disp('boundary defined');
 
 %%
 % Apply the boundary conditions.
-bOuter = applyBoundaryCondition(model,'neumann','Edge',(1:4),'g',0,'q',0);
+bOuter = applyBoundaryCondition(model,'neumann','Edge',(1:4),'g',0,'q',-1i*k);
 innerBCFunc = @(loc,state)-exp(-1i*k*loc.x);
-%innerBCFunc = 0; % <== mert idealis femnek tekintem
 bInner = applyBoundaryCondition(model,'dirichlet','Edge',(5:8),'u',innerBCFunc);
 
 disp('boundary applied');
 
 %% Create Mesh
-generateMesh(model,'Hmax',0.02);
+generateMesh(model,'Hmax',2*pi/k/10);
 figure
 pdemesh(model); 
 axis equal
